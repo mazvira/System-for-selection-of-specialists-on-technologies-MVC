@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SystemKnowledgeMVC.Models.AreaOfKnowledge>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>
+    @Html.ActionLink("Search by Name of Area of Knowledge", "SearchByNameOfArea")
+</p>
+
+<p>
+    @Html.ActionLink("Search by Name of Area of Knowledge With Description", "SearchByNameOfAreaWithDescription")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaOfKnowledgeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaOfKnowledgeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AreaOfKnowledgeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AreaOfKnowledgeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AreaOfKnowledgeID })
+        </td>
+    </tr>
+}
+
+</table>
